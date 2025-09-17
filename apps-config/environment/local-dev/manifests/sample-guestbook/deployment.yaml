@@ -4,6 +4,8 @@ metadata:
   name: guestbook-backend
   namespace: sample-guestbook
 spec:
+goTemplate: true
+goTemplateOptions: ["missingkey=error"]
   replicas: 1
   selector:
     matchLabels:
@@ -21,7 +23,8 @@ spec:
         env:
         - name: BG_COLOR
           # value: "#f0f8ff"  # Light blue
-          value: "#ff0000"  # Red
-
+          value: '{{.BG_COLOR}}'  # Red
+        - name: REDIS_URL
+          value: "redis://redis-guestbook-backend:6379"
 
           
