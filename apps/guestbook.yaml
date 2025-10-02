@@ -12,7 +12,7 @@ spec:
         - clusterName: local-dev
           clusterURL: https://kubernetes.default.svc
           variant: local
-          chartVersion: "v0.1.2"
+          chartVersion: "v0.1.3"
   template:
     metadata:
       name: '{{.clusterName}}-sample-guestbook'
@@ -22,9 +22,9 @@ spec:
         namespace: sample-guestbook
       project: platform
       sources:
-      - repoURL: https://github.com/BlackOpsSolutions/blackops-guestbook/releases/tag/v0.1.2
-        # chart: guestbook-helm-chart
-        # targetRevision: "{{.chartVersion}}"
+      - repoURL: https://blackopssolutions.github.io/blackops-guestbook
+        chart: guestbook
+        targetRevision: "{{.chartVersion}}"
       syncPolicy:
         # automated:
         #   prune: true
