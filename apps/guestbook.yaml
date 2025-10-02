@@ -25,6 +25,14 @@ spec:
       - repoURL: https://blackopssolutions.github.io/blackops-guestbook
         chart: guestbook
         targetRevision: "{{.chartVersion}}"
+        helm:
+        valueFiles:
+          - $values/apps-config/base/guestbook.yaml
+          - $values/apps-config/variant/{{.variant}}/guestbook.yaml
+          - $values/apps-config/environment/{{.clusterName}}/guestbook.yaml
+      - repoURL: https://github.com/BlackOpsSolutions/Training-ArgoCD.git
+        targetRevision: HEAD
+        ref: values
       syncPolicy:
         # automated:
         #   prune: true
