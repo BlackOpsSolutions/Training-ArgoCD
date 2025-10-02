@@ -1,2 +1,3 @@
 image:
+  repository: timblackops/guestbook
   tag: v1.0.0
