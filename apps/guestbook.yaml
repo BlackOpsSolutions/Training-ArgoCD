@@ -24,7 +24,7 @@ spec:
       sources:
       - repoURL: https://github.com/BlackOpsSolutions/blackops-guestbook/releases/tag/
         chart: guestbook-helm-chart
-        targetRevision: {{.chartVersion}}
+        targetRevision: "{{.chartVersion}}"
       syncPolicy:
         # automated:
         #   prune: true
