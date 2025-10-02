@@ -22,9 +22,9 @@ spec:
         namespace: sample-guestbook
       project: platform
       sources:
-      - repoURL: https://github.com/BlackOpsSolutions/blackops-guestbook/releases/tag/
-        chart: guestbook-helm-chart
-        targetRevision: "{{.chartVersion}}"
+      - repoURL: https://github.com/BlackOpsSolutions/blackops-guestbook/releases/tag/v0.1.2
+        # chart: guestbook-helm-chart
+        # targetRevision: "{{.chartVersion}}"
       syncPolicy:
         # automated:
         #   prune: true
