@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bradsapp
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+      elements:
+        - clusterName: local-dev
+          clusterURL: https://kubernetes.default.svc
+          variant: local
+          chartVersion: "v0.1.19"
+  template:
+    metadata:
+      name: '{{.clusterName}}-bradsapp'
+    spec:
+      destination:
+        server: '{{.clusterURL}}'
+        namespace: bradsapp
+      project: platform
+      sources:
+      - repoURL: https://enz2g.github.io/webapp/
+        chart: webapp
+        targetRevision: "{{.chartVersion}}"
+      syncPolicy:
+        # automated:
+        #   prune: true
+        #   selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
