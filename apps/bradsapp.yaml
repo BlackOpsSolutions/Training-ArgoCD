@@ -26,8 +26,8 @@ spec:
         chart: webapp
         targetRevision: "{{.chartVersion}}"
         helm:
-        valueFiles:
-          - $values/apps-config/base/bradsapp.yaml
+          valueFiles:
+            - $values/apps-config/base/bradsapp.yaml
       - repoURL: https://github.com/BlackOpsSolutions/Training-ArgoCD.git
         targetRevision: HEAD
         ref: values
