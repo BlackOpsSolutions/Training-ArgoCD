@@ -12,7 +12,7 @@ spec:
         - clusterName: local-dev
           clusterURL: https://kubernetes.default.svc
           variant: local
-          chartVersion: "v0.1.19"
+          chartVersion: "v0.1.20"
   template:
     metadata:
       name: '{{.clusterName}}-bradsapp'
@@ -25,6 +25,12 @@ spec:
       - repoURL: https://enz2g.github.io/webapp/
         chart: webapp
         targetRevision: "{{.chartVersion}}"
+        helm:
+        valueFiles:
+          - $values/apps-config/base/bradsapp.yaml
+      - repoURL: https://github.com/BlackOpsSolutions/Training-ArgoCD.git
+        targetRevision: HEAD
+        ref: values
       syncPolicy:
         # automated:
         #   prune: true
