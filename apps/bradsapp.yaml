@@ -12,7 +12,7 @@ spec:
         - clusterName: local-dev
           clusterURL: https://kubernetes.default.svc
           variant: local
-          chartVersion: "v0.1.21"
+          chartVersion: "v0.1.26"
   template:
     metadata:
       name: '{{.clusterName}}-bradsapp'
